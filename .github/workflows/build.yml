@@ -40,7 +40,7 @@ jobs:
           mkdir -p ./public
           docker run --rm -d --name 2048-container ghcr.io/madhucheran/2048-ghcr:latest
           sleep 10 # Wait for the container to start
-          docker cp 2048-container:/var/www/html/html ./public
+          docker cp 2048-container:/var/www/html ./public
           docker stop 2048-container
           ls -la ./public # List files to ensure index.html is present
 
