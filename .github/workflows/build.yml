@@ -3,7 +3,7 @@ name: Build, Push, and Deploy Docker Image for 2048
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   build_and_publish:
