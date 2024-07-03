@@ -40,7 +40,7 @@ jobs:
           mkdir -p ./public
           docker run --rm -d --name 2048-container ghcr.io/madhucheran/2048-ghcr:latest
           sleep 10 # Wait for the container to start
-          docker cp 2048-container:/var/www/html ./public
+          docker cp 2048-container:/var/www/html/html ./public
           docker stop 2048-container
           ls -la ./public # List files to ensure index.html is present
 
@@ -48,5 +48,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GIT_TOKEN }}
-          publish_dir: ./public
+          publish_dir: ./public/html  # Adjusted path to the html folder
           publish_branch: gh-pages
