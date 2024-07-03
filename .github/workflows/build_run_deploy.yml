@@ -42,10 +42,11 @@ jobs:
           sleep 10 # Wait for the container to start
           docker cp 2048-container:/var/www/html ./public
           docker stop 2048-container
+          ls -la ./public # List files to ensure index.html is present
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GIT_TOKEN }}
           publish_dir: ./public
-          publish_branch: gh-pages  # Ensure this matches your GitHub Pages settings
+          publish_branch: gh-pages
